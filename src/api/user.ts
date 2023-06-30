@@ -12,7 +12,7 @@ import { AxiosError } from "axios";
 
 interface UserSeriviceInterface {
   login: (params: UserManageType.UserLoginFormState) => Promise<any>;
-  registry: (params: { username: string; password: string }) => Promise<any>;
+  registry: (params: UserManageType.UserRegistryFormState) => Promise<any>;
 }
 
 export const useUserSerivice = (): UserSeriviceInterface => {
@@ -28,8 +28,16 @@ export const useUserSerivice = (): UserSeriviceInterface => {
           return Promise.reject(error);
         });
     }
-    registry(params: { username: string; password: string }) {
-      return Promise.resolve(1);
+    registry(params: UserManageType.UserRegistryFormState) {
+      const url = API_USER_CONFIG.registry();
+      return request
+        .post(url, params)
+        .then(({ data }: any) => {
+          return Promise.resolve(data);
+        })
+        .catch((error: AxiosError) => {
+          return Promise.reject(error);
+        });
     }
   }
   return new UserService();
