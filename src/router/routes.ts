@@ -12,6 +12,11 @@ export const routes: Array<RouteRecordRaw> = [
     component: () => import(/* webpackChunkName: "UserLogin" */ '@/views/user/login.vue')
   },
   {
+    path: '/user/registry',
+    name: 'registry',
+    component: () => import(/* webpackChunkName: "UserLogin" */ '../views/user/Registry.vue')
+  },
+  {
     path: '/404',
     name: 'NotFound',
     component: () => import(/* webpackChunkName: "NotFound" */ '@/views/common/404.vue')

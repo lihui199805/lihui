@@ -39,6 +39,7 @@
 import { defineComponent, ref } from "vue";
 import { UserManageType } from "../../interface/model/user";
 import { useUserSerivice } from "../../api/user";
+import { useRouter } from "vue-router";
 export default defineComponent({
   name: "UserLogin",
   props: {},
@@ -49,8 +50,10 @@ export default defineComponent({
         new UserManageType.UserLoginFormState()
       ),
     };
+    const router=useRouter()
     const onSubmit = async () => {
       const result = await userSerivice.login(state.formState.value);
+      router.push('/user/registry')
       console.log(result);
     };
     return {
