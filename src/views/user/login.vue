@@ -53,7 +53,7 @@ export default defineComponent({
     const router=useRouter()
     const onSubmit = async () => {
       const result = await userSerivice.login(state.formState.value);
-     
+      router.push('/user/home/index')
       console.log(result);
     };
     const registry=()=>{
