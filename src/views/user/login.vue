@@ -27,7 +27,7 @@
             <van-button round block type="primary" native-type="submit"
               >提交</van-button
             >
-            <van-button round block native-type="submit">注册</van-button>
+            <van-button round block @click="registry">注册</van-button>
           </van-space>
         </div>
       </van-form>
@@ -53,12 +53,16 @@ export default defineComponent({
     const router=useRouter()
     const onSubmit = async () => {
       const result = await userSerivice.login(state.formState.value);
-      router.push('/user/registry')
+     
       console.log(result);
     };
+    const registry=()=>{
+        router.push('/user/registry')
+    }
     return {
       ...state,
       onSubmit,
+      registry
     };
   },
 });
