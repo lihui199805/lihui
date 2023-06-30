@@ -24,5 +24,15 @@ export const routes: Array<RouteRecordRaw> = [
   {
     path: '/:pathMatch(.*)*',
     redirect: '/404'
+  },
+  {
+    path:'/user/home',
+    component: () => import(/* webpackChunkName: "NotFound" */ '@/views/user/Home.vue'),
+    children:[
+      {
+        path:'/user/home/index',
+        component: () => import(/* webpackChunkName: "NotFound" */ '@/views/user/home/Index.vue')
+      }
+    ]
   }
 ]
