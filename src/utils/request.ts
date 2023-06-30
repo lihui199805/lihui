@@ -1,9 +1,4 @@
-/*
- * @Author: heinan
- * @Date: 2023-06-20 11:04:54
- * @Last Modified by: heinan
- * @Last Modified time: 2023-06-29 18:06:00
- */
+
 // @ts-nocheck
 import axios, { AxiosInstance, AxiosError, AxiosResponse } from 'axios'
 import { showToast } from 'vant'
